@@ -7,5 +7,7 @@ deploy:
   api_key:
     secure: Ye46JVc5DUXVg0kZJX+RqXyQcWSqE07MUziLoR7i9+TVY172WeTIG/Sahbnkt2lU0BiubxdV3qAXwXMoGvb6cZS+VKZdtCnskA1AGzn8xJh8CCp3BC64xAPEJBgkzgPXa96DiA1CJzRLidOiNEZY249zSpTeO0I/7/xg/L2a1cE=
   file: 'Final Report.pdf'
+  skip_cleanup: true
   on:
-    repo: team-beta/report
+    tags: true
+    all_branches: true
