@@ -1,0 +1,11 @@
+install:
+- sudo apt-get install texlive-full latexmk
+script:
+- latexmk -pdf
+deploy:
+  provider: releases
+  api_key:
+    secure: Ye46JVc5DUXVg0kZJX+RqXyQcWSqE07MUziLoR7i9+TVY172WeTIG/Sahbnkt2lU0BiubxdV3qAXwXMoGvb6cZS+VKZdtCnskA1AGzn8xJh8CCp3BC64xAPEJBgkzgPXa96DiA1CJzRLidOiNEZY249zSpTeO0I/7/xg/L2a1cE=
+  file: 'Final Report.pdf'
+  on:
+    repo: team-beta/report
