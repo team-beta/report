@@ -1,7 +1,7 @@
 install:
 - sudo apt-get install texlive-full latexmk
 script:
-- latexmk -pdf
+- yes x | latexmk -pdf
 deploy:
   provider: releases
   api_key:
