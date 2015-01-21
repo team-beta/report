@@ -23,7 +23,6 @@
 
 \setlength\headheight{20pt}
 %\addtolength\topmargin{-10pt}
-
 %\addtolength\footskip{20pt}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -35,6 +34,7 @@
 \newcommand{\revision}{\noindent{Revision: \version}}
 \renewcommand\contentsname{Table of Contents}
 \setlength\parindent{0pt}
+\setlength{\parskip}{1em}
 
 
 \author{Team-Beta}
@@ -62,10 +62,10 @@
 		\begin{minipage}{0.4\textwidth}
 		\begin{flushleft} \large
 		\emph{Authors:}\\
-		Team Beta			
+        Team Beta
 		\end{flushleft}
 		\end{minipage}
-		~		
+        ~
 		\begin{minipage}{0.4\textwidth}
 		\begin{flushright} \large
 		\emph{Course responsible lecturer:} \\
@@ -80,10 +80,11 @@
         {\normalsize \hspace*{-5em} \begin{tabular}{|l|l|l|l|}
         \hline
          \textbf{ Team Member} &  \textbf{Role} &\textbf{E-mail address} & \textbf{Student ID} \\ \hline
-          Jeroen van Hoof & Coding/art/sound & j.m.a.p.v.hoof@student.tue.nl & 0778486 \\ \hline
-          Kevin Cleijne & Art Assets, Evaluation &k.c.g.a.cleijne@student.tue.nl & 0779007 \\ \hline          
-          Pieter Kokx & Lead Programmer & p.a.kokx@student.tue.nl & TODO:NUMBER \\ \hline
-          Joep Klein Teeselink & Back-End Programmer & j.klein.teeselink@student.tue.nl & 0816396 \\ \hline
+          Jeroen van Hoof & Coding/art/sound& j.m.a.p.v.hoof@student.tue.nl & 0778486 \\ \hline
+          Kevin Cleijne & Art Assets, Evaluation
+          &k.c.g.a.cleijne@student.tue.nl & 0779007 \\ \hline
+          Pieter Kokx & Lead Programmer & p.a.kokx@student.tue.nl & 0747517 \\ \hline
+          Joep Klein Teeselink & Programmer & j.klein.teeselink@student.tue.nl & 0816396 \\ \hline
           Twan van Schijndel & Level and Story Design & t.v.schijndel@student.tue.nl & 0857767 \\ \hline
           \hline
         \end{tabular}}\\[1cm] %---------------------------------------------------------------------------------------
@@ -200,6 +201,10 @@ A next challenge was to let the player interact with parts of code. The way we c
 \textbf{Level Design - Twan van Schijndel} \\
 Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. \\
 
+\textbf{Back-End Programming - Pieter Kokx, Joep Klein Teeselink}
+The game is made in Phaser, a HTML5 engine used to create web-based games. By using Phaser as our engine we were allowed to create an environment which is really easy for players to access without requiring downloads or pre-installed software. Phaser works with HTML 5 and is coded in Javascript. Javascript allows for a lot of functionality which allows for a lot of freedom while designing the game.
+@TODO: add some info plx
+
 \textbf{Evaluation and Testing - Everyone}
 A game has to be iterated upon and bugfixed during its creation. It is imperative to detect bugs early and fix them, upholding structure and design principles. Any irregularities, defects and bad ideas need to be caught and adapted in order to make a functional and enjoyable game.\\
 
@@ -268,6 +273,11 @@ Animated objects allow for a lively world that is interesting to look at. Some o
 \subsection{Level Creation}
 The levels have been designed on paper prior to implementation to the game. The conceptual drawings follow the 32px by 32px rule of a single block, allowing for a good scalable representation of the level and accurate platform distancing, to be traversed by Jumper. Conceptual levels introduced new mechanics which we then incorporated as programming functions for the game, such as having obstacles dissipate and become unsolid or having objects stand in the way of your level progression. These ideas were drawn and incorporated into a playable level, then created as functions and realized in the game for the player to solve.
 
+\begin{figure}[h]
+\includegraphics[scale=0.3]{levelSketchAndDesign.png}
+\caption{The process of level creation for level 3}
+\end{figure}
+
 %art 
 \subsection{Art Creation}
 The art assets were made by 2 members, and as such it was difficult to adhere to a single style, we used assets that were made in a way that it was not clearly obvious that two people created them. The style we used is called Flat Design. Even though it appears basic, there are subtle effects in play that require some effort to realized. As such we had to scrap a lot of assets, removing them entirely or having to heavily modify them to fit to the standard. The assets themselves are vector drawings, able to scale up and down without resolution loss. This allows us to
@@ -325,7 +335,28 @@ I need to communicate better and ask exactly what is required of me so that the 
 
 \subsubsection{Pieter Kokx}
 
-%TODO: write personal conclusions and reflection
+I joined a team that had already worked together in the previous Design for
+Games and Play course. That made it a bit difficult in the beginning to get
+started, because the rest of the team already had a history together. It
+easily became clear that I was the more seasoned programmer in the team, so I
+moved myself into the role of lead programmer rather quickly. Since I had a
+great experience with the Phaser framework in the previous course, I proposed
+to use it during this course as well. And I'm glad we did, because it made the
+game easy to play on all computers.
+
+In the beginning, I set out to make sure that we have a good setup of the
+source code. Looking back at it, I'm glad that we took our time to do that.
+Because of our solid codebase, it was possible for us to move very quickly
+when we needed to. In the last two weeks, it was very easy to add new levels,
+and to implement new features.
+
+I also introduced the team to the notion of using git and GitHub as version
+control tools. Instead of using a file-sharing tool like Dropbox, which tends
+to generate a lot of conflicted copies when multiple people work on the same
+file, these versioning tools allow you to properly merge these problems when
+the arise.
+
+I definitely liked the 
 
 
 %\includegraphics[width=14cm]{ss9.png}
@@ -336,6 +367,9 @@ The games for design and play courses have been a joyful and interesting ride fo
 \subsubsection{Twan van Schijndel}
 
 %TODO: tlaky
+I really liked this course of Design for Game and play II. It was very interesting to learn about the psychology in gaming. I especially liked the project we had. Even more so than the project of Design for Game and Play I. I felt much more usefull for my team this time and I really, really liked designing the game and its levels. I had to think about the story of the game that would engage the player, what programmable powers would be fun for our type of game and how the buildup in each level should be. I also had to think about what might be fun mechanics for our game that were actually possible with the amount of time and knowledge we had. I've created about six level sketches on paper and worked out 4 of them as coloured pictures with the right dimensions on my laptop. After that I created the levels in the game and added and added an extra one. Eventually the 3 best levels that were possible with the mechanics we had made it into the final game and I am very proud of that. I think they are a good fit for our game and that they are fun to play, challenging enough and slowly teach the player more about their powers.\\
+The teamwork in this group was also of high quality. My knowledge of programming and the programs we used to work on the project was fairly limited. But there was always someone that was willing to help me out.\\
+I am really proud of our game and all the work we put into making it.
 
 \section{Appendix}
 %TODO: list of stuff?
