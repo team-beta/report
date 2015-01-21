@@ -23,6 +23,7 @@
 
 \setlength\headheight{20pt}
 %\addtolength\topmargin{-10pt}
+
 %\addtolength\footskip{20pt}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
@@ -46,14 +47,14 @@
 		%----------------------------------------------------------------------------------------
 		%	HEADING
 		%----------------------------------------------------------------------------------------
-		\textsc{\LARGE Technical University of Eindhoven}\\[1.5cm] % Name of your university/college
+		\textsc{\LARGE Eindhoven University of Technology}\\[1.5cm] % Name of your university/college
 		\textsc{\Large DZC20 Design for Games \& Play II - }%\\[0.5cm] % Major heading such as course name
 		\textsc{\large Team Beta}\\[0.5cm] % Minor heading such as course title
 		%----------------------------------------------------------------------------------------
 		%	MAIN TITLE
 		%---------------------------------------------------------------------------------------
 		\HRule \\[0.4cm]
-		{ \huge \bfseries Serious Game Design - Final Report: \\ \vspace{1em}Jumper}\\[0.4cm] % Title of your document
+		{ \huge \bfseries Serious Games - Final Report: \\ \vspace{1em}Jumper}\\[0.4cm] % Title of your document
 		\HRule \\[1.5cm]
 		%----------------------------------------------------------------------------------------
 		%	AUTHOR
@@ -79,7 +80,7 @@
         {\normalsize \hspace*{-5em} \begin{tabular}{|l|l|l|l|}
         \hline
          \textbf{ Team Member} &  \textbf{Role} &\textbf{E-mail address} & \textbf{Student ID} \\ \hline
-          Jeroen van Hoof & Lead Art Design, Front-End& j.m.a.p.v.hoof@student.tue.nl & 0778486 \\ \hline
+          Jeroen van Hoof & Coding/art/sound & j.m.a.p.v.hoof@student.tue.nl & 0778486 \\ \hline
           Kevin Cleijne & Art Assets, Evaluation &k.c.g.a.cleijne@student.tue.nl & 0779007 \\ \hline          
           Pieter Kokx & Lead Programmer & p.a.kokx@student.tue.nl & TODO:NUMBER \\ \hline
           Joep Klein Teeselink & Back-End Programmer & j.klein.teeselink@student.tue.nl & 0816396 \\ \hline
@@ -149,8 +150,7 @@
 %----------------------------------------------------------------
 \pagestyle{fancy}
 \section*{Introduction}
-
-This report covers the process of the creation of a Serious Game designed for programming courses. The goal is to provide an insight into the design philosophies, choices made and hurdles overcome. We will first discuss the basic premise of the game. Afterwards we provide and overview of the design concepts, realization and finally conclusions with individual evaluations.
+This report covers the process of the creation of a Serious Game designed for programming courses. The goal is to provide an insight into the design philosophies, choices made and hurdles overcome. We will first discuss the basic premise of the game. Afterwards we provide an overview of the design concepts, realization and finally conclusions with individual evaluations.
 
 \begin{figure}[h]
 \centering
@@ -159,47 +159,49 @@ This report covers the process of the creation of a Serious Game designed for pr
 
 
 \section{Goal}
-We intend to create a serious game designed to peak interest in the Computer Science bachelor on the TU/e. As such we focused on the programming discipline, a key part in this education. Our game is intended for people who are looking for an introduction to programming and are interested in following a Computer Science education.
+Our objective is to create a serious game designed to pique interest in Computer Science. We intend to do so with a sandbox-like puzzle platformer that teaches you the basics of a programming language through its mechanics.
 
-Our objective then is to create a sandbox-y puzzle platformer that teaches you the basics of a programming language through its mechanics. The game itself must be fulfilling to play, providing a reward system as you go which consists of acquiring new abilities in the form of programming commands, unfolding the story and encountering new and interesting locations with more difficult puzzle elements. When the player stops playing he should have a basic understanding of a programming structure, building up the concepts such as recursion, for-loops and choice branches with IF and ELSE statements.
+The game itself must be fulfilling to play, providing a reward system as you go which consists of acquiring new abilities in the form of programming commands, unfolding the story and encountering new and interesting locations with more difficult puzzle elements. When the player finishes the game, he should have a basic understanding of a programming structure.
 
 
 \subsection{Target Audience}
+Our game is intended for people who are looking for an introduction into programming and are interested in following a Computer Science education.
 The demographic is aimed at high school students who wish to follow a computer science education. They need not have a background in programming, but should they do they will progress trough the game quicker and arrive at more challenging stages more quickly, increasing the level of programming required as levels progress.
 
 \subsection{Team Introduction}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.4]{group}
+\caption{Jeroen, Joep, Pieter, Twan, Kevin}
+\end{figure}
+Our team consists of 5 members
 
-Our team consists of 5 members - all following a computer science degree.
-@TODO: who are you? 
-
-Jeroen van Hoof is a web science student
-
-Pieter Kokx is a @TODO
-
-Twan van Schijndel is a @TODO
-
-Joep Klein Teeselink is a Psychology and Technology student (3rd year).
-
-and finally we have Kevin Cleijne, who is also a software science in his 3rd year.
+\begin{itemize}
+\item Jeroen van Hoof is a Web Science student (4th year).
+\item Pieter Kokx is a Computer Science student (5th year).
+\item Twan van Schijndel is Web Science Student (2nd year).
+\item Joep Klein Teeselink is a Psychology and Technology student (3rd year).
+\item Kevin Cleijne is a Software Science student (3rd year).
+\end{itemize}
 
 \subsection{Role Distinction and Allocation}
 We define the following roles necessary for our game: \\
 
 \textbf{Art Design - Jeroen van Hoof, Kevin Cleijne} \\
-the art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique.\\
+The art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique.\\
 
-\textbf{Front-End Programming - Jeroen van Hoof} \\
-Placement of game objects, art assets and interface design. \\
+\textbf{Programming - Jeroen van Hoof, Pieter Kokx, Joep Klein Teeselink} \\
+The game is built using the Phaser HTML5 game framework, a HTML5 engine used to create web-based games. Phaser ships with support for arcade physics, a preloader to load all assets before the game starts, support for animation with spritesheets, particles and some other handy things. Phaser allowed us to focus more on the game itself, while exploiting its features.\\
+
+We started off building a library so that we could later on put the levels together really easy. For example, the function createPlatform() tiles a block-sprite, tests for collision and plays the land/walk-sound on collision with some additional screenshake and particles if the robot collides with it.\\
+
+A next challenge was to let the player interact with parts of code. The way we coded the game, made it possible to access the entire game via the command line. We have however made a list of functions that are more easily accessible so that we could use it in the game. And we used jQuery-terminal so that the player can interact with this object via an in-game terminal.\\
 
 \textbf{Level Design - Twan van Schijndel} \\
 Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. \\
 
-\textbf{Back-End Programming - Pieter Kokx, Joep Klein Teeselink}
-The game is made in Phaser, a HTML5 engine used to create web-based games. By using Phaser as our engine we were allowed to create an environment which is really easy for players to access without requiring downloads or pre-installed software. Phaser works with HTML 5 and is coded in Javascript. Javascript allows for a lot of functionality which allows for a lot of freedom while designing the game.
-@TODO: add some info plx
-
 \textbf{Evaluation and Testing - Everyone}
-a game has to be iterated upon and bugfixed during its creation. It is imperative to detect bugs early and fix them, upholding structure and design principles. Any irregularities, defects and bad ideas need to be caught and adapted in order to make a functional and enjoyable game.\\
+A game has to be iterated upon and bugfixed during its creation. It is imperative to detect bugs early and fix them, upholding structure and design principles. Any irregularities, defects and bad ideas need to be caught and adapted in order to make a functional and enjoyable game.\\
 
 \subsection{Setup}
 
@@ -221,7 +223,7 @@ We use a basic flat design art style that keeps things simple and clear, allowin
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=1.5]{robot}
+\includegraphics[scale=1.5]{jumper}
 \caption{The protagonist: Jumper}
 \end{figure}
 
@@ -313,7 +315,8 @@ The story progression should have a logical ordering for the levels, creating a 
 
 \subsubsection{Kevin Cleijne}
 
-I enjoyed the course as a whole but felt that we had too similair backgrounds to really structure the roles. The game we made was a puzzle platformer which does not require a storyline as much as something like a point-and-click, which was my previous role. I decided to work on art assets and help out Jeroen but it proved difficult to adhere to the standards of flat design, as I had no experience with vector drawing. During the project I tried to help out in different areas, mostly making basic assets and doing the documentation of the design principles for Google Drive and the final report. Looking back I feel that I should have lead the project more, allowing proper focus and clear, crisp ideas/objectives for us. A lot of work proved unusable because of communication errors and unacknowledged requirements for assets that I made, requiring heavy modification or even removal of them. For the next project we really need to have a crystal clear communication line where everyone knows exactly what to expect from another. I will need to have a look at what is at our disposal with GitHub, see if we can get these requirements clearly visible. We need to set deadlines and expectations for designs we wish to include so that we have plenty of time to incorporate it properly.
+I enjoyed the course as a whole but felt that we had too similair backgrounds to really structure the roles. The game we made was a puzzle platformer which does not require a 
+storyline as much as something like a point-and-click, which was my previous role. I decided to work on art assets and help out Jeroen but it proved difficult to adhere to the standards of flat design, as I had no experience with vector drawing. During the project I tried to help out in different areas, mostly making basic assets and doing the documentation of the design principles for Google Drive and the final report. Looking back I feel that I should have lead the project more, allowing proper focus and clear, crisp ideas/objectives for us. A lot of work proved unusable because of communication errors and unacknowledged requirements for assets that I made, requiring heavy modification or even removal of them. For the next project we really need to have a crystal clear communication line where everyone knows exactly what to expect from another. I will need to have a look at what is at our disposal with GitHub, see if we can get these requirements clearly visible. We need to set deadlines and expectations for designs we wish to include so that we have plenty of time to incorporate it properly.
 I need to communicate better and ask exactly what is required of me so that the effort is not lost, which is a shame.
 
 \subsubsection{Jeroen van Hoof}

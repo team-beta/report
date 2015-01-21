@@ -111,3 +111,6 @@ sympy-plots-for-*.tex/
 
 # resulting files
 *.pdf
+
+# exclude .swp files ;)
+*.swp
