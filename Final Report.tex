@@ -300,16 +300,21 @@ We started out creating the basic structure of the game, setting up a UML
 diagram which we adhered to. We had to do some renaming to make everything
 more logical when dealing with the code, having 2 different classes called
 Game is ambiguous and has been resolved by renaming one to Main.
-\todo{add some programming iterations}
 \\
 \begin{figure}[H]
   \includegraphics[width=1\textwidth]{API}
   \caption{API structure} 
 \end{figure}
-\\
 
 Many assets have been revised and updated to fit the style we opted for, different scales have been made and are readily present in the repository, allowing for easy adaptation where necessary. Others have been discarded or heavily manipulated.
-\todo{image of repository explorer}
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{house_1}
+  \caption{House: first iteration}
+\end{figure}
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth]{house_2}
+  \caption{House: last iteration} 
+\end{figure}
 
 We had several ideas for the Interface - first opting for floating text boxes
 when clicking on an object to list it's name, properties and affected methods.
@@ -331,18 +336,20 @@ The story progression should have a logical ordering for the levels, creating a 
 \includegraphics[scale=0.2]{locations}
 \caption{level progression}
 \end{figure}
+When we started user testing, we found out that the players did not really like the game. First of all, they did not understand why they had to type commands, but after we explained to them that it was a game to learn programming, they understood. What we found out to be the biggest problem, was that users did not really like to type. After a while they would get bored. We already reduced this by letting users click on an object and insert part of the required code in the terminal, but they still had to type the entire method themselves. So, we created a menu that would automatically execute commands. The problem with that was that players did not learn to type their commands out, and the distance to actual programming became to big. We solved this by gradually extending the list of commands that could automatically be executed from the menu each time the user learned and practiced the command enough. And we put in an extra 'select' option that would insert first part of the code for all commands that still required typing. 
+
+Another problem was that users did not know what to do in the intro level. They had to type help(), then go through the block that became unsolid and follow the hallway. But it was not clear that the block changed, so we did a few things to fix this issue. First, we made the difference between the solid and unsolid state more distinct by making the block more transparent in the unsolid state. Next, we also added a transition sound every time the block changed state. We also updated the help() function so that it said "that block blocking the exit" instead of "that block over there". And finally, we added blinking arrows, that basically just yelled "Go there!".\\
+
+The fun thing, but also the most challenging thing, about building our game was, that if we changed one little thing, it would affect the entire gameplay and all strategies of solving a level, and even the entire initial level design could be needed to be redesigned. The gap between a challenging game and an overpowered block or robot was very small. For example, if we had added a resize-feature that lets you resize blocks, you could just resize blocks to get over them instead of making them unsolid, or resize them instead of moving them to the right spot so that you could jump on a higher platform... or imagine what happened if we allowed the blocks to float in the air. One other exampple is the world.robot.jetpack(true) function that would give the robot a jetpack with which it could just fly to the end of the level without solving things. We had to degrade the jetpack by removing the unlimited height you could go to, and then it was still overpowered, so we decided to let it just in as an easter egg.\\
+
+We made all interactable objects the same form and color, just like in Mario, to make a very clear distinction between game objects that could not be programmed, and the ones that can. First, our blue blocks could only teleport. There was no gravity or collision detection, and they just could be placed everywhere you want them to be. So instead of solving puzzles, you could just select all blocks and move them to wherever you want. Next, we added some basic gravity, collision with platforms, game objects and other blue blocks. And changed the teleport to a change in velocity (.moveRight(100) would move the block to the right with a speed of 100 pixels/s). Later, we changed that to a task-queue that would just move with a preset velocity and check if the block has moved so many tiles to the right and then stop.\\
+
+Somehow, the blocks pushed you throught the underneath ground if they fell upon you. This was not easily fixed, I mean, we could just let it stay on the head of the robot or something, but instead of fixing it, we transformed it into a feature, by adding in a level where you could exploit this 'feature' to your advantage. I think this fit our game well, since we wanted to allow people to be able to hack or break the game.\\
+
 
 \section{Evaluation}
 
-
-
-
-
-
-
 %----------------------------------------------------------------------------
-
-
 
 \subsection{Individual report - members motivations and reflections}
 
@@ -359,16 +366,6 @@ I liked the idea to use Phaser. The previous course we wrote our own browser-bas
 In the first course, I had tossed the idea to use GitHub to speed up our development. Unfortunately, nobody really had experience with GitHub, so we had used Dropbox/Filezilla and a host Joep had somewhere left. This was kind of ugly, but at least everyone understood it. But with the introduction of Pieter in our group, we could push GitHub trough, after some boggle here and there ;). I was very happy about this.\\
 
 I was very impressed by the Vlambeer presentation back in the first part of the course. So, right off from the start, I said "Screenshake!". I did not care what this screenshake would be used for, as long as we would have screenshake somewhere. It is a little feature that makes the game much more lively, but because it is so little, it is also easily overlooked. Since there are no guns or enemies in our game, I ended up using it for the landing of the robot: the harder it landed, the longer the screen shaked. Together with some particle effects and a land sound, it really feels like you land on something hard. The best thing is that mattresses do not cause a screenshake, which makes them feel very soft and pleasant to jump on, next to the cold rumbling steel conveyor belts in the intro level. Also, because every block has a different matching walk and land effect, you really get to 'feel' the game.\\
-
-When we started user testing, we found out that the players did not really like the game. First of all, they did not understand why they had to type commands, but after we explained to them that it was a game to learn programming, they understood. What we found out to be the biggest problem, was that users did not really like to type. After a while they would get bored. We already reduced this by letting users click on an object and insert part of the required code in the terminal, but they still had to type the entire method themselves. So, we created a menu that would automatically execute commands. The problem with that was that players did not learn to type their commands out, and the distance to actual programming became to big. We solved this by gradually extending the list of commands that could automatically be executed from the menu each time the user learned and practiced the command enough. And we put in an extra 'select' option that would insert first part of the code for all commands that still required typing. 
-
-Another problem was that users did not know what to do in the intro level. They had to type help(), then go through the block that became unsolid and follow the hallway. But it was not clear that the block changed, so we did a few things to fix this issue. First, we made the difference between the solid and unsolid state more distinct by making the block more transparent in the unsolid state. Next, we also added a transition sound every time the block changed state. We also updated the help() function so that it said "that block blocking the exit" instead of "that block over there". And finally, we added blinking arrows, that basically just yelled "Go there!".\\
-
-The fun thing, but also the most challenging thing, about building our game was, that if we changed one little thing, it would affect the entire gameplay and all strategies of solving a level, and even the entire initial level design could be needed to be redesigned. The gap between a challenging game and an overpowered block or robot was very small. For example, if we had added a resize-feature that lets you resize blocks, you could just resize blocks to get over them instead of making them unsolid, or resize them instead of moving them to the right spot so that you could jump on a higher platform... or imagine what happened if we allowed the blocks to float in the air. One other exampple is the world.robot.jetpack(true) function that would give the robot a jetpack with which it could just fly to the end of the level without solving things. We had to degrade the jetpack by removing the unlimited height you could go to, and then it was still overpowered, so we decided to let it just in as an easter egg.\\
-
-We made all interactable objects the same form and color, just like in Mario, to make a very clear distinction between game objects that could not be programmed, and the ones that can. First, our blue blocks could only teleport. There was no gravity or collision detection, and they just could be placed everywhere you want them to be. So instead of solving puzzles, you could just select all blocks and move them to wherever you want. Next, we added some basic gravity, collision with platforms, game objects and other blue blocks. And changed the teleport to a change in velocity (.moveRight(100) would move the block to the right with a speed of 100 pixels/s). Later, we changed that to a task-queue that would just move with a preset velocity and check if the block has moved so many tiles to the right and then stop.\\
-
-Somehow, the blocks pushed you throught the underneath ground if they fell upon you. This was not easily fixed, I mean, we could just let it stay on the head of the robot or something, but instead of fixing it, we transformed it into a feature, by adding in a level where you could exploit this 'feature' to your advantage. I think this fit our game well, since we wanted to allow people to be able to hack or break the game.\\
 
 I learned quite a few new things this quartile. I learned a new HTML5 game framework, some advanced JavaScript, a bit more about git, editors, to make spritesheets for animation, making tile-able blocks, and more. But most importantly, how to make a funny serious game.\\
 
