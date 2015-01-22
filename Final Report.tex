@@ -186,14 +186,17 @@ Our team consists of 5 members
 \item Kevin Cleijne is a Software Science student (3rd year).
 \end{itemize}
 
+
 \subsection{Role Distinction and Allocation}
 We define the following roles necessary for our game: \\
 
 \textbf{Art Design - Jeroen van Hoof, Kevin Cleijne} \\
-The art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique.\\
+The art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique. The Phaser game induced two extra challenges: making blocks tile nice and using spritesheets for animation. We used Inkscape for most of the assets, GIMP for tileable blocks, since that worked better in GIMP and Adobe Photoshop/Illustrator because Kevin prefered to work with those tools.\\
 
 \textbf{Programming - Jeroen van Hoof, Pieter Kokx, Joep Klein Teeselink} \\
-The game is built using the Phaser HTML5 game framework, a HTML5 engine used to create web-based games. Phaser ships with support for arcade physics, a preloader to load all assets before the game starts, support for animation with spritesheets, particles and some other handy things. Phaser allowed us to focus more on the game itself, while exploiting its features.\\
+The game is built using the Phaser HTML5 game framework, a HTML5 engine used to create web-based games using WebGL/Canvas. Phaser ships with support for arcade physics, a preloader to load all assets before the game starts, support for animation with spritesheets, particles and some other handy things. Phaser allowed us to focus more on the game itself, while exploiting its features.\\
+
+Because we wrote our code in Javascript, everyone with a modern browser can play our game by just visiting the web page. There is no need to download or install anything. Since JavaScript is very popular, it is very easy for interested parties (including our own team members) to contribute to the project.\\
 
 We started off building a library so that we could later on put the levels together really easy. For example, the function createPlatform() tiles a block-sprite, tests for collision and plays the land/walk-sound on collision with some additional screenshake and particles if the robot collides with it.\\
 
@@ -201,17 +204,6 @@ A next challenge was to let the player interact with parts of code. The way we c
 
 \textbf{Level Design - Twan van Schijndel} \\
 Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. \\
-
-\textbf{Back-End Programming - Pieter Kokx, Joep Klein Teeselink}
-Our game is made in Phaser. Phaser is a HTML5 Game Engine, built to create
-games using WebGL/canvas. Because you write Phaser code in Javascript,
-everyone with a modern browser can play our game by just visiting the web
-page. There is no need to download or install anything.
-
-Also, since it all was written in Javascript, it was very easy for most of the
-team to collaborate on the code. Javascript is used by a lot of people, and
-all it's quirks are documented very well. So it is very easy for everyone to
-contribute to the project.
 
 \textbf{Evaluation and Testing - Everyone}
 A game has to be iterated upon and bugfixed during its creation. It is imperative to detect bugs early and fix them, upholding structure and design principles. Any irregularities, defects and bad ideas need to be caught and adapted in order to make a functional and enjoyable game.\\
@@ -360,7 +352,23 @@ I need to communicate better and ask exactly what is required of me so that the 
 
 \subsubsection{Jeroen van Hoof}
 
-\todo{evaluation}
+I liked the idea to use Phaser. The previous course we wrote our own browser-based point-and-click engine with HTML, JavaScript, PHP, and CSS. And now we could upgrade to a browser-based platformer game with pure JavaScript. So, our group name upgraded as well from Team Alpha to Team Beta. Who knows, Team Gamma next? It could make up for some nice puns... Gamma, that I say! It is nice that we acquired Pieter from the Pixel-evolution group who already used Phaser, now we can combine forces!\\
+
+In the first course, I had tossed the idea to use GitHub to speed up our development. Unfortunately, nobody really had experience with GitHub, so we had used Dropbox/Filezilla and a host Joep had somewhere left. This was kind of ugly, but at least everyone understood it. But with the introduction of Pieter in our group, we could push GitHub trough, after some boggle here and there ;). I was very happy about this.\\
+
+I was very impressed by the Vlambeer presentation back in the first part of the course. So, right off from the start, I said "Screenshake!". I did not care what this screenshake would be used for, as long as we would have screenshake somewhere. It is a little feature that makes the game much more lively, but because it is so little, it is also easily overlooked. Since there are no guns or enemies in our game, I ended up using it for the landing of the robot: the harder it landed, the longer the screen shaked. Together with some particle effects and a land sound, it really feels like you land on something hard. The best thing is that mattresses do not cause a screenshake, which makes them feel very soft and pleasant to jump on, next to the cold rumbling steel conveyor belts in the intro level. Also, because every block has a different matching walk and land effect, you really get to 'feel' the game.\\
+
+When we started user testing, we found out that the players did not really like the game. First of all, they did not understand why they had to type commands, but after we explained to them that it was a game to learn programming, they understood. What we found out to be the biggest problem, was that users did not really like to type. After a while they would get bored. We already reduced this by letting users click on an object and insert part of the required code in the terminal, but they still had to type the entire method themselves. So, we created a menu that would automatically execute commands. The problem with that was that players did not learn to type their commands out, and the distance to actual programming became to big. We solved this by gradually extending the list of commands that could automatically be executed from the menu each time the user learned and practiced the command enough. And we put in an extra 'select' option that would insert first part of the code for all commands that still required typing. 
+
+Another problem was that users did not know what to do in the intro level. They had to type help(), then go through the block that became unsolid and follow the hallway. But it was not clear that the block changed, so we did a few things to fix this issue. First, we made the difference between the solid and unsolid state more distinct by making the block more transparent in the unsolid state. Next, we also added a transition sound every time the block changed state. We also updated the help() function so that it said "that block blocking the exit" instead of "that block over there". And finally, we added blinking arrows, that basically just yelled "Go there!".\\
+
+The fun thing, but also the most challenging thing, about building our game was, that if we changed one little thing, it would affect the entire gameplay and all strategies of solving a level, and even the entire initial level design could be needed to be redesigned. The gap between a challenging game and an overpowered block or robot was very small. For example, if we had added a resize-feature that lets you resize blocks, you could just resize blocks to get over them instead of making them unsolid, or resize them instead of moving them to the right spot so that you could jump on a higher platform... or imagine what happened if we allowed the blocks to float in the air. One other exampple is the world.robot.jetpack(true) function that would give the robot a jetpack with which it could just fly to the end of the level without solving things. We had to degrade the jetpack by removing the unlimited height you could go to, and then it was still overpowered, so we decided to let it just in as an easter egg.\\
+
+We made all interactable objects the same form and color, just like in Mario, to make a very clear distinction between game objects that could not be programmed, and the ones that can. First, our blue blocks could only teleport. There was no gravity or collision detection, and they just could be placed everywhere you want them to be. So instead of solving puzzles, you could just select all blocks and move them to wherever you want. Next, we added some basic gravity, collision with platforms, game objects and other blue blocks. And changed the teleport to a change in velocity (.moveRight(100) would move the block to the right with a speed of 100 pixels/s). Later, we changed that to a task-queue that would just move with a preset velocity and check if the block has moved so many tiles to the right and then stop.\\
+
+Somehow, the blocks pushed you throught the underneath ground if they fell upon you. This was not easily fixed, I mean, we could just let it stay on the head of the robot or something, but instead of fixing it, we transformed it into a feature, by adding in a level where you could exploit this 'feature' to your advantage. I think this fit our game well, since we wanted to allow people to be able to hack or break the game.\\
+
+I learned quite a few new things this quartile. I learned a new HTML5 game framework, some advanced JavaScript, a bit more about git, editors, to make spritesheets for animation, making tile-able blocks, and more. But most importantly, how to make a funny serious game.\\
 
 \subsubsection{Pieter Kokx}
 
