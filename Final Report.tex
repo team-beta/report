@@ -269,10 +269,25 @@ Now that we have the game concepts in place, we need to actually create a game.
 We opt for a HTML game that can be deployed online for easy access. Platformers are not as resouce intensive which allows for this approach. Levels can be loaded fast and there is practically no downtime. This approach allows us more flexibiltiy, utilizing a HTML engine Phaser, as well as some CSS and Javascript to further enhance the game.
 %Phaser/game structure
 \subsection{Structure Realization}
+Our game is divided in three states: boot, preload and game. The boot and preload states make the game ready for use: they load all assets and then activate the game state. In the game state, we have several Game Objects:
+\begin{itemize}
+\item \textbf{API:} This is a library of functions that we created and used to create platforms, mattresses, conveyor belts, dust particles, snow flakes and other stuff. It will automatically add all these objects to different lists and has an update method that will detect collision between any of these objects, and activate the matching sceenshake intensity, landing sound, walking sound, particle effects, etc.
+\item \textbf{Block: } This is a block we can interact with. It has methods to move and setSolidity, but also methods for selecting and showing a menu. It has its own upate method to check for collision with platforms, the robot, other blocks and solid objects (e.g. buildings)/
+\item \textbf{Block manager: } This is an extra layer between the blocks and the level. It creates the blocks and keeps track of all of them, so that each of them is updated.
+\item \textbf{Code: } This is the library the player can interact with. It keeps a list of objects which the player can interact with, so you can type 'world' to access this library and then via this object, you can access all the in-game objects. It has some extra functions, such as mute() and play() to modify the sound or listBlocks() which allows the player get al list of all blocks.
+\item \textbf{Object: } Not very important. It is just a frame on which other objects can extend.
+\item \textbf{Robot: } This is Jumper. It handles all the up, down, right, left keys and shows the right animation. It also check for collisions and has some built in easter eggs such as the world.robot.jetpack(true), and a world.robot.dance() method. We even experimented with a speech API, so that the robot can actually talk, but it only works on Google Chrome. Try world.robot.speak('something').
+\item \textbf{Settings: } This is a default list of settings.
+\item \textbf{Task: } This is a task manager that keeps track of the movement of blocks.
+\end{itemize}
 
-\todo{need a back-end guy to talk about Phaser canvas and game structure a
-    bit.}
+The Game object itself (Main.js) controls the entire game. It has methods for loading levels, updates all its objects in a top-down hierarchy and initiates some block objects such as a grass-block, dirt-block, metal-block, etc. that can be used to create platforms.\\
 
+Each level is subdivided into three layers: the background layer, the robot, and the foreground layer. The background layer is used for decoration and other objects that do not require interaction with the robot. Everything that is placed in this layer, appears behind the robot. The foreground layer is used for platforms, mattresses, conveyor belts, interactable blocks and even some decoration, so that for example some trees appear before the robot while others appear behind it. This gives you the feeling that you walk between the trees. Most of the objects in the foreground layer require collision detection with the robot.\\
+
+Each level also has its own settings we load in before the level start. Settings include things as whether it snows or not, what background to use or which background music to play.
+
+We used the RequireJS library to automatically load all our classes when the game needs them. 
 
 \subsection{Programming Habits}
 \todo{talk about standards employed}
