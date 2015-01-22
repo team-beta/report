@@ -7,6 +7,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{wrapfig}
 \usepackage{todonotes}
+\usepackage{float}
 
 %\usepackage{pdfpages}
 % Test if repo works.
@@ -154,7 +155,7 @@
 \section*{Introduction}
 This report covers the process of the creation of a Serious Game designed for programming courses. The goal is to provide an insight into the design philosophies, choices made and hurdles overcome. We will first discuss the basic premise of the game. Afterwards we provide an overview of the design concepts, realization and finally conclusions with individual evaluations.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=1]{teamlogo}
 \end{figure}
@@ -171,7 +172,7 @@ Our game is intended for people who are looking for an introduction into program
 The demographic is aimed at high school students who wish to follow a computer science education. They need not have a background in programming, but should they do they will progress trough the game quicker and arrive at more challenging stages more quickly, increasing the level of programming required as levels progress.
 
 \subsection{Team Introduction}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{group}
 \caption{Jeroen, Joep, Pieter, Twan, Kevin}
@@ -226,7 +227,7 @@ We use a basic flat design art style that keeps things simple and clear, allowin
 
 \subsection{Story}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=1.5]{jumper}
 \caption{The protagonist: Jumper}
@@ -255,7 +256,7 @@ background, having the player observe behaviour occurring in the game and
 learning from that.
 \todo{tracks/machine idea discussion here if implemented}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.5]{level.png}
 \caption{tutorial concept}
 \end{figure}
@@ -265,6 +266,7 @@ Now that we have the game concepts in place, we need to actually create a game.
 We opt for a HTML game that can be deployed online for easy access. Platformers are not as resouce intensive which allows for this approach. Levels can be loaded fast and there is practically no downtime. This approach allows us more flexibiltiy, utilizing a HTML engine Phaser, as well as some CSS and Javascript to further enhance the game.
 %Phaser/game structure
 \subsection{Structure Realization}
+
 \todo{need a back-end guy to talk about Phaser canvas and game structure a
     bit.}
 
@@ -283,7 +285,7 @@ Animated objects allow for a lively world that is interesting to look at. Some o
 \subsection{Level Creation}
 The levels have been designed on paper prior to implementation to the game. The conceptual drawings follow the 32px by 32px rule of a single block, allowing for a good scalable representation of the level and accurate platform distancing, to be traversed by Jumper. Conceptual levels introduced new mechanics which we then incorporated as programming functions for the game, such as having obstacles dissipate and become unsolid or having objects stand in the way of your level progression. These ideas were drawn and incorporated into a playable level, then created as functions and realized in the game for the player to solve.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.3]{levelSketchAndDesign.png}
 \caption{The process of level creation for level 3}
 \end{figure}
@@ -300,7 +302,7 @@ more logical when dealing with the code, having 2 different classes called
 Game is ambiguous and has been resolved by renaming one to Main.
 \todo{add some programming iterations}
 \\
-\begin{figure}[h]
+\begin{figure}[H]
   \includegraphics[width=1\textwidth]{API}
   \caption{API structure} 
 \end{figure}
@@ -318,14 +320,14 @@ each specific manipulation such as solid/unsolid() or move() would be visually
 queued by having those objects appear in a certain color only.
 \todo{is this still the case or is it ambigous now?}
 We looked to color-code parts of the terminal input to make it clearer for the player, ultimately we had to scrap that in favour of a more robust terminal. 
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.6]{terminal_example.png} 
 \caption{terminal}
 \end{figure}
 
 Our initial level was made up of a single defined area, later we introduced a camera motion that allows us to make bigger levels that scrolls with the player. This allowed for more complex and larger levels.
 The story progression should have a logical ordering for the levels, creating a factory level where you first become acquainted with Jumper, traversing the factory to escape into the wide world. These world locations should follow some logical sequence. We wanted to make the areas diverse and interesting so the idea was to make a neon-city progression, where you would visit the outskirts with defect robots, the inner city full of life at night-time and visit the center with a mall and disco. We instead decided to create a progression that first explains the mechanics more so we introduced the goal 'get to the TU/e' for Jumper, where would learn more about his abilities.
-\begin{figure}[h]
+\begin{figure}[H]
 \includegraphics[scale=0.2]{locations}
 \caption{level progression}
 \end{figure}
