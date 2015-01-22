@@ -6,6 +6,7 @@
 \usepackage[top = 25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{wrapfig}
+\usepackage{todonotes}
 
 %\usepackage{pdfpages}
 % Test if repo works.
@@ -220,7 +221,7 @@ A game has to be iterated upon and bugfixed during its creation. It is imperativ
 For our development setup we used a GitHub Repository, allowing every member to work on the project at once. Conflicting files can be easily combined to a single file and every modification is clearly documented via the GitHub client. Additions and alterations are traceable and revertible with ease.
 
 The game design concepts are documented in Google Drive - we documented images and ideas while brainstorming. This allows us to look back on our work and recall discussions and ideas, saving the result of brainstorm sessions for later.
-%TODO: add images.
+\todo{add images}
 
 
 The communication channels we used were primarily via WhatsApp and Facebook. These let us schedule appointments for when to come together and attend people to ideas and progression. We also utilized the GitHub issue section to flag problems and assign them to team members to fix.
@@ -251,7 +252,16 @@ the interactions increase as you progress, making things more interesting and di
 \subsection{Level Design}
 
 Puzzle platformers require good level design to be fun to play. The levels need to be challenging and incorporate the different programming abilities via obstacles that should be logical elements and not feel very out of place. To achieve a good level we adhered to a standard of keeping objects as a power of 2, generally picking 32px by 32px for a standard platform, having the player character at 32x64. By adhering to this standard we can precisely place objects and platforms for the different levels.
-Special attention is given to the introduction/tutorial level(s),aiming to create a connection between the player and the playable character. The tutorial levels introduce new programming mechanics - the objective of what the player needs to do to progress is clearly visible, it is up to him to find out exactly how the command works - turning to the help function when in doubt, as well as tips displayed in the level. We wished to make the solution not very <do this> like but instead attempted to blend the solution in the background, having the player observe behaviour occurring in the game and learning from that. %TODO: (tracks/machine idea discussion here if implemented).
+Special attention is given to the introduction/tutorial level(s),aiming to
+create a connection between the player and the playable character. The
+tutorial levels introduce new programming mechanics - the objective of what
+the player needs to do to progress is clearly visible, it is up to him to find
+out exactly how the command works - turning to the help function when in
+doubt, as well as tips displayed in the level. We wished to make the solution
+not very <do this> like but instead attempted to blend the solution in the
+background, having the player observe behaviour occurring in the game and
+learning from that.
+\todo{tracks/machine idea discussion here if implemented}.
 
 \begin{figure}[h]
 \includegraphics[scale=0.5]{level.png}
@@ -263,11 +273,12 @@ Now that we have the game concepts in place, we need to actually create a game.
 We opt for a HTML game that can be deployed online for easy access. Platformers are not as resouce intensive which allows for this approach. Levels can be loaded fast and there is practically no downtime. This approach allows us more flexibiltiy, utilizing a HTML engine Phaser, as well as some CSS and Javascript to further enhance the game.
 %Phaser/game structure
 \subsection{Structure Realization}
-%TODO: need a back-end guy to talk about Phaser canvas and game structure a bit.
+\todo{need a back-end guy to talk about Phaser canvas and game structure a
+    bit.}
 
 
 \subsection{Programming Habits}
-%TODO: talk about standards employed
+\todo{talk about standards employed}
 
 \subsection{Game Interaction}
 The interactions the player has with the game are basic platforming with a jump combined with the puzzle aspect, solvable using the command terminal used to manipulate objects. The terminal allows for programming of game objects, calling upon readily made functions (and some hidden ones to allow for experimentation) that can change the world so that you may advance the level. Since we do not require players to have a programming background, we have to supply them with the know-how of these manipulations. To assist in this we need to have a tutorial for each of these new programming aspects. After such a tutorial we need to provide a codex to re-evaluate the just learned mechanic. We do this by means of a help() function. Upon calling the help while trying a manipulation we provide an insight into its workings and further explain the usage. To further assist the player in doing some tedious tasks we incorporated a click mechanic that will pre-write the object name whenever the player clicks on a manipulatable object in the game world, giving it a while border implying it is selected. This click auto-fills the terminal and makes it ready for manipulation.
@@ -291,7 +302,11 @@ The art assets were made by 2 members, and as such it was difficult to adhere to
 change the scale of assets on the asset itself rather than use Phaser to manipulate scaling. As long as the assets adhered to the ratio rules we set, they would fit perfectly into the canvas. Even if this did not work out it was easy to change the scale on the asset itself, them being vectors instead of rasterized images.
 
 \section{Iteration}
-We started out creating the basic structure of the game, setting up a UML diagram which we adhered to. We had to do some renaming to make everything more logical when dealing with the code, having 2 different classes called Game is ambiguous and has been resolved by renaming one to Main. %TODO: add some programming iterations ;)
+We started out creating the basic structure of the game, setting up a UML
+diagram which we adhered to. We had to do some renaming to make everything
+more logical when dealing with the code, having 2 different classes called
+Game is ambiguous and has been resolved by renaming one to Main.
+\todo{add some programming iterations}
 \\
 \begin{figure}[h]
   \includegraphics[width=1\textwidth]{API}
@@ -300,9 +315,16 @@ We started out creating the basic structure of the game, setting up a UML diagra
 \\
 
 Many assets have been revised and updated to fit the style we opted for, different scales have been made and are readily present in the repository, allowing for easy adaptation where necessary. Others have been discarded or heavily manipulated.
-%TODO: image of repository explorer
+\todo{image of repository explorer}
 
-We had several ideas for the Interface - first opting for floating text boxes when clicking on an object to list it's name, properties and affected methods. We opted for a terminal help function instead to avoid cluttering the game with boxes and avoid having many clicks. The focus is to 'write/code' your way trough the game, not click. Further we discussed some clarity changes - where each specific manipulation such as solid/unsolid() or move() would be visually queued by having those objects appear in a certain color only. %TODO - is this still the case or is it ambigous now?
+We had several ideas for the Interface - first opting for floating text boxes
+when clicking on an object to list it's name, properties and affected methods.
+We opted for a terminal help function instead to avoid cluttering the game
+with boxes and avoid having many clicks. The focus is to 'write/code' your way
+trough the game, not click. Further we discussed some clarity changes - where
+each specific manipulation such as solid/unsolid() or move() would be visually
+queued by having those objects appear in a certain color only.
+\todo{is this still the case or is it ambigous now?}
 We looked to color-code parts of the terminal input to make it clearer for the player, ultimately we had to scrap that in favour of a more robust terminal. 
 \begin{figure}[h]
 \includegraphics[scale=0.6]{terminal_example.png} 
@@ -338,7 +360,7 @@ I need to communicate better and ask exactly what is required of me so that the 
 
 \subsubsection{Jeroen van Hoof}
 
-%TODO: talky
+\todo{evaluation}
 
 \subsubsection{Pieter Kokx}
 
@@ -376,14 +398,12 @@ The games for design and play courses have been a joyful and interesting ride fo
 
 \subsubsection{Twan van Schijndel}
 
-%TODO: tlaky
 I really liked this course of Design for Game and play II. It was very interesting to learn about the psychology in gaming. I especially liked the project we had. Even more so than the project of Design for Game and Play I. I felt much more usefull for my team this time and I really, really liked designing the game and its levels. I had to think about the story of the game that would engage the player, what programmable powers would be fun for our type of game and how the buildup in each level should be. I also had to think about what might be fun mechanics for our game that were actually possible with the amount of time and knowledge we had. I've created about six level sketches on paper and worked out 4 of them as coloured pictures with the right dimensions on my laptop. After that I created the levels in the game and added and added an extra one. Eventually the 3 best levels that were possible with the mechanics we had made it into the final game and I am very proud of that. I think they are a good fit for our game and that they are fun to play, challenging enough and slowly teach the player more about their powers.\\
 The teamwork in this group was also of high quality. My knowledge of programming and the programs we used to work on the project was fairly limited. But there was always someone that was willing to help me out.\\
 I am really proud of our game and all the work we put into making it.
 
 \section{Appendix}
-%TODO: list of stuff?
-
+\todo{THIS}
 
 
 \end{document}
