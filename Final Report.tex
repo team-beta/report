@@ -188,11 +188,16 @@ Our team consists of 5 members
 \subsection{Role Distinction and Allocation}
 We define the following roles necessary for our game: \\
 
+\subsection{Role Distinction and Allocation}
+We define the following roles necessary for our game: \\
+
 \textbf{Art Design - Jeroen van Hoof, Kevin Cleijne} \\
-The art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique.\\
+The art design makes up the aestetics of the game. We uphold a single standard art style to keep the looks consistant. We wish to create our own assets to make the game unique. The Phaser game induced two extra challenges: making blocks tile nice and using spritesheets for animation. We used Inkscape for most of the assets, GIMP for tileable blocks, since that worked better in GIMP and Adobe Photoshop/Illustrator because Kevin prefered to work with those tools.\\
 
 \textbf{Programming - Jeroen van Hoof, Pieter Kokx, Joep Klein Teeselink} \\
-The game is built using the Phaser HTML5 game framework, a HTML5 engine used to create web-based games. Phaser ships with support for arcade physics, a preloader to load all assets before the game starts, support for animation with spritesheets, particles and some other handy things. Phaser allowed us to focus more on the game itself, while exploiting its features.\\
+The game is built using the Phaser HTML5 game framework, a HTML5 engine used to create web-based games using WebGL/Canvas. Phaser ships with support for arcade physics, a preloader to load all assets before the game starts, support for animation with spritesheets, particles and some other handy things. Phaser allowed us to focus more on the game itself, while exploiting its features.\\
+
+Because we wrote our code in Javascript, everyone with a modern browser can play our game by just visiting the web page. There is no need to download or install anything. Since JavaScript is very popular, it is very easy for interested parties (including our own team members) to contribute to the project.\\
 
 We started off building a library so that we could later on put the levels together really easy. For example, the function createPlatform() tiles a block-sprite, tests for collision and plays the land/walk-sound on collision with some additional screenshake and particles if the robot collides with it.\\
 
@@ -200,17 +205,6 @@ A next challenge was to let the player interact with parts of code. The way we c
 
 \textbf{Level Design - Twan van Schijndel} \\
 Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. \\
-
-\textbf{Back-End Programming - Pieter Kokx, Joep Klein Teeselink}
-Our game is made in Phaser. Phaser is a HTML5 Game Engine, built to create
-games using WebGL/canvas. Because you write Phaser code in Javascript,
-everyone with a modern browser can play our game by just visiting the web
-page. There is no need to download or install anything.
-
-Also, since it all was written in Javascript, it was very easy for most of the
-team to collaborate on the code. Javascript is used by a lot of people, and
-all it's quirks are documented very well. So it is very easy for everyone to
-contribute to the project.
 
 \textbf{Evaluation and Testing - Everyone}
 A game has to be iterated upon and bugfixed during its creation. It is imperative to detect bugs early and fix them, upholding structure and design principles. Any irregularities, defects and bad ideas need to be caught and adapted in order to make a functional and enjoyable game.\\
