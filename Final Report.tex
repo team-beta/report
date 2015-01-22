@@ -204,7 +204,7 @@ We started off building a library so that we could later on put the levels toget
 A next challenge was to let the player interact with parts of code. The way we coded the game, made it possible to access the entire game via the command line. We have however made a list of functions that are more easily accessible so that we could use it in the game. And we used jQuery-terminal so that the player can interact with this object via an in-game terminal.\\
 
 \textbf{Level Design - Twan van Schijndel} \\
-Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. \\
+Our game is a puzzle platformer and as such level design is critical. The levels need to be created in a way that keeps the challenging yet not too complicated, pacing is key. Multiple levels were sketched, drawn in more detail on a computer and eventually turned into playable levels. Many level ideas were designed, but only the best and most time efficient ones were created. \\
 
 \textbf{Sound - Jeroen van Hoof}\\
 For our sound, we mainly used the Youtube Audio library, and Audacity to cut in the sounds to take the best part out for use in our game. The jumping sound comes from Mario, the 'hey' when typing help() comes from the Legend of Zelda, and the jetpack sound comes from some Star Wars video. For every platform we used different walking and landing sounds, so that you really 'feel' the material of the platform or object.\\
@@ -217,7 +217,12 @@ A game has to be iterated upon and bugfixed during its creation. It is imperativ
 For our development setup we used a GitHub Repository, allowing every member to work on the project at once. Conflicting files can be easily combined to a single file and every modification is clearly documented via the GitHub client. Additions and alterations are traceable and revertible with ease.
 
 The game design concepts are documented in Google Drive - we documented images and ideas while brainstorming. This allows us to look back on our work and recall discussions and ideas, saving the result of brainstorm sessions for later.
-\todo{add images}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{github}
+\caption{GitHub was used for developping our game}
+\end{figure}
 
 
 The communication channels we used were primarily via WhatsApp and Facebook. These let us schedule appointments for when to come together and attend people to ideas and progression. We also utilized the GitHub issue section to flag problems and assign them to team members to fix.
@@ -256,8 +261,11 @@ out exactly how the command works - turning to the help function when in
 doubt, as well as tips displayed in the level. We wished to make the solution
 not very <do this> like but instead attempted to blend the solution in the
 background, having the player observe behaviour occurring in the game and
-learning from that.
-\todo{tracks/machine idea discussion here if implemented}.
+learning from that. We had the idea to create a machine in the background of
+one of the first levels that would show how to make things solid/unsolid and
+how to move things. In the end, due to time constraints, we replaced that idea
+with a help() function that would give tips in every level to introduce the
+player to a new mechanic.
 
 \begin{figure}[H]
 \includegraphics[scale=0.5]{level.png}
